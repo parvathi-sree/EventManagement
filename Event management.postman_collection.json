@@ -1,0 +1,230 @@
+{
+	"info": {
+		"_postman_id": "e0235cb2-8762-4399-ba5d-724a8480dadd",
+		"name": "Event management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30829434",
+		"_collection_link": "https://ai2222-9181.postman.co/workspace/ai-Workspace~8753fb83-5e1c-44ec-821e-99efe495308c/collection/30829434-e0235cb2-8762-4399-ba5d-724a8480dadd?action=share&source=collection_link&creator=30829434"
+	},
+	"item": [
+		{
+			"name": "event creation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"keyboard\",\n\"description\":\"classical and western\",\n\"start_time\":\"2006-04-05T15:05:15\",\n\"end_time\":\"2006-04-10T20:05:15\",\n\"location\":\"ekm\",\n\"max_attendees\":500,\n\"status\":\"ongoing\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8000/events",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "event update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"dance\",\n\"description\":\"dances moves need to update\",\n\"start_time\":\"2006-08-05T15:05:15\",\n\"end_time\":\"2006-08-10T20:05:15\",\n\"location\":\"tvm\",\n\"max_attendees\":500,\n\"status\":\"completed\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8000/events/5",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"events",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add attendees",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8000//attendees/{event_id}",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"",
+						"attendees",
+						"{event_id}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "attendee check in",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8000/attendees/1/check_in/1",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"attendees",
+						"1",
+						"check_in",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get event",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:8000/events?status=scheduled&location=ekm",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"events"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "scheduled"
+						},
+						{
+							"key": "location",
+							"value": "ekm"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get attendees",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:8000/attendees/3",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"attendees",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bulk checkin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "postman-cloud:///1f00fa99-6b96-4ef0-acef-997e2250bffe"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8000/attendees/bulk_check_in/",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"attendees",
+						"bulk_check_in",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
