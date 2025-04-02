@@ -1,1 +1,3 @@
 # EventManagement
+
+install required packages 
